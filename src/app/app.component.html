@@ -1,0 +1,8 @@
+<!-- Layout -->
+<app-header *ngIf="isLogin===true"></app-header>
+<div [ngClass]="{'addHeader': isLogin === false}"></div>
+<div id="top" [ngClass]="{'padHeader': isLogin === true}">
+  <router-outlet></router-outlet>
+</div>
+
+<app-footer *ngIf="isLogin===true"></app-footer>

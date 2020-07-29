@@ -1,0 +1,28 @@
+<div style="background-color:#f7f7f7;">
+    <div class="row" style="margin-left: auto; margin-right: auto;">
+        <div class="col-sm-12 col-md-8 col-lg-8" style="background-color:#fff;">
+            <div class="container">
+                <div class="vertical-center">
+                    <img src="./../../../assets/images/why-hiveducate.png" alt="Why HivEducate?" style="float: left;width:100%;">
+                </div>
+            </div>            
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4" style="background-color:#f7f7f7;">
+            <div class="container" [ngStyle]="isUserLoggedIn? {'height':'85vh'}:{'height':'100vh'}">
+                <div class="center">
+                    <div style="justify-content: center;overflow:auto;">
+                        <img src="./../../../assets/images/logo-bluegray-t.png" style="margin-left: auto;margin-right:auto;display: block;" class="logoPosition" alt="HivEducate"/>                        
+                        <h3 style="text-align: center;">Built for </h3>
+                        <h3 style="text-align: center;">Remote Education</h3>
+                        <div style="padding:25px 0px"></div>
+                        <p style="text-align: justify;"> A Secured Engagement Portal for students and teachers to engage
+                            with schedules, information and very importantly integrated with the <b>Intelligent Teachers Assistant(ITA)</b> chatbot.</p>
+                        <div class="d-flex justify-content-center" *ngIf="!isUserLoggedIn">                    
+                            <button class="btn btn-secondary btn-block" style="padding:20px 0px;font-size:24px;width:80%" (click)="routeToLogin()">Sign in to HivEducate</button>
+                        </div>
+                    </div>                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

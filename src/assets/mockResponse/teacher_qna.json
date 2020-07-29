@@ -1,0 +1,62 @@
+{
+    "data": [
+        {
+            "_id": "1110b140883291eca83f985c6d140cc2",
+            "_rev": "1-4e63c9fca3f9d03c57b6cd02ae5362e5",
+            "answer": "",
+            "answered": false,
+            "answered_by": {
+                "teacher_id": "th-1",
+                "teacher_name": "marry, john"
+            },
+            "answered_date": "",
+            "asked_by": {
+                "student_id": "st-1",
+                "student_name": "will, smith"
+            },
+            "asked_date": "2020-07-12",
+            "question": "How many rivers are in Newyork?",
+            "viewed": false,
+            "viewed_date": ""
+        },
+        {
+            "_id": "12b8085265e7d0f8be7c32c364228e1d",
+            "_rev": "11-ec2f484a927ec98227aba15cf26121d0",
+            "answer": "Colorado",
+            "answered": true,
+            "answered_by": {
+                "teacher_id": "th-1",
+                "teacher_name": "marry, john"
+            },
+            "answered_date": "2020-07-12",
+            "asked_by": {
+                "student_id": "st-1",
+                "student_name": "will, smith"
+            },
+            "asked_date": "2020-6-26",
+            "question": "which is the longest river in USA?",
+            "viewed": true,
+            "viewed_date": "2020-07-12"
+        },
+        {
+            "_id": "12b8085265e7d0f8be7c32c3643ad390",
+            "_rev": "3-45cb625cf2d4ad10c77558f0c437432d",
+            "answer": "5 rivers",
+            "answered": true,
+            "answered_by": {
+                "teacher_id": "th-1",
+                "teacher_name": "marry, john"
+            },
+            "answered_date": "2020-6-29",
+            "asked_by": {
+                "student_id": "st-2",
+                "student_name": "nat, bill"
+            },
+            "asked_date": "2020-6-29",
+            "question": "How many rivers are there in Arizona?",
+            "viewed": true,
+            "viewed_date": "2020-6-29"
+        }
+    ],
+    "success": true
+}

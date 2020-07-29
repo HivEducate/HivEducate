@@ -1,0 +1,38 @@
+.tabContainer {
+    display: block;
+    min-width: 100%;
+}
+.qaTab {
+    background-color: #aaaaaa;    
+    padding: 0px;
+    margin: 0px;
+    border: 2px solid #f0f0f0;
+    min-height: 50vh;
+    min-width: 85vw;
+    width: 85vw;
+}
+.question {
+    background-color: #85baf0;
+    margin: 10px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+.answer {
+    background-color: rgb(226, 225, 221);
+    margin-left: 25px;
+    margin-right: 10px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+.unanswered {
+    background-color: rgb(241, 220, 132);
+    // margin-left: 25px;
+    // margin-right: 25px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 80%;
+}
+.qaPanel {
+    font-family: inherit;
+}

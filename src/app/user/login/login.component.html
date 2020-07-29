@@ -1,0 +1,51 @@
+<div class="application-main">    
+    <div class="auth-form container">
+        <div class="auth-form center">
+        <div class="auth-form-header">
+            <h4>Sign in to</h4>
+            <a routerLink="/home"><img src="./../../../assets/images/logo-bluegray-t.png" class="logoPosition" alt="HivEducate"/></a>
+        </div>        
+        <div class="auth-form-body">
+            <form #loginForm="ngForm" (ngSubmit)="submitHandler(loginForm)" id="loginForm" name="loginForm">
+                <div class="form-group">
+                    <label for="username" class="col-form-label">Username or email address</label>                
+                    <input type="text" class="form-control input-block" id="userName" placeholder="User Name or Email"
+                            name="userName" [(ngModel)]="userName" #userNameRef="ngModel" required (ngModelChange)="resetLoginStatus()">
+                    <div [hidden]="userNameRef.valid || userNameRef.pristine" class="alert alert-danger">
+                        User Name is required
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="currentRole" class="col-form-label">Role</label>                
+                    <select class="form-control input-block" id="currentRole"
+                            required
+                            [(ngModel)]="userRole" name="userRole"
+                            #currentUserRole="ngModel">
+                            <option hidden value="">-- Your Role --</option>
+                    <option *ngFor="let currentRole of userRoles" [value]="currentRole">{{currentRole}}</option>
+                    </select>            
+                    <div [hidden]="currentUserRole.valid || currentUserRole.pristine" class="alert alert-danger">
+                    Please select your role
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="userPassword" class="col-form-label">Password</label>                
+                        <input type="password" class="form-control input-block" id="userPassword" placeholder="password"
+                            name="userPassword" [(ngModel)]="userPassword" #userPasswordRef="ngModel" required>                
+                    <div [hidden]="userPasswordRef.valid || userPasswordRef.pristine" class="alert alert-danger">
+                        Password is required
+                    </div>
+                </div>
+                <div class="form-group">                
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>                
+                </div>
+                <div class="form-group" *ngIf="loginStatusMessage && loginStatusMessage.length>0">
+                    <div class="alert alert-danger">
+                    {{loginStatusMessage}}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</div>

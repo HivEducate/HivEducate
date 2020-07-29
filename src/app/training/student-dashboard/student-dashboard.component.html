@@ -1,0 +1,147 @@
+<div class="main" style="margin-bottom: 0px;padding-bottom: 0px;">
+    <div class="row primaryPanel">
+        <div class="col-sm-12 col-md-12 col-lg-6 ">
+            <div class="row">
+                <div class="col-sm-12 tabContainer heading" style="text-align: center;">
+                    My Dashboard
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" style="min-height: 300px; max-height: 400px; overflow-y:auto;overflow-x: hidden;">
+                    <tabset>
+                        <tab heading="Unanswered Questions">
+                            <div *ngIf="unasweredQuestions && unasweredQuestions.length > 0">
+                                <accordion>
+                                    <accordion-group *ngFor="let qAndA of unasweredQuestions; let qNo=index"
+                                        [panelClass]="customAccordPanel">
+                                        <button class="btn btn-link btn-block clearfix" accordion-heading type="button">                                            
+                                            <div class="row">
+                                                <div class="col-sm-12 col-sm-10">
+                                                    <div>
+                                                        <div style="display: block; text-align: left;">
+                                                            {{qNo+1}}. {{qAndA.question}}
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <ul class="list-group list-group-horizontal">
+                                                            <li class="list-group-item badge">Posted On: {{qAndA.asked_date}}</li>
+                                                            <li class="list-group-item badge">Posted To:
+                                                                {{qAndA.answered_by?.teacher_name}}</li>
+                                                            <li class="list-group-item badge" *ngIf="qAndA.answered">Answered On:
+                                                                {{qAndA.answered_date}}</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="sm-col-12 md-col-2">
+                                                    <i *ngIf="qAndA.answered" class="fa fa-check-circle fa-2"
+                                                            aria-hidden="true"></i>
+                                                        <span class="sr-only">Answered</span>
+                                                </div>
+                                            </div>
+                                            <!--<div class="pull-left float-left with-border">{{qNo+1}}. {{qAndA.question}}
+                                            </div>-->
+                                            <!--<div class="float-right pull-right col-sm-3 with-border">
+                                                <div class="row">
+                                                    <div class="col-sm-9">                                                        
+                                                        <div class="badge with-border question-info">Posted On:
+                                                            {{qAndA.asked_date}}</div>
+                                                        <div class="badge with-border question-info">Posted To:
+                                                                {{qAndA.answered_by?.teacher_name}}</div>
+                                                        <div *ngIf="qAndA.answered"
+                                                            class="badge with-border question-info">Answered On:
+                                                            {{qAndA.answered_date}}</div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <i *ngIf="qAndA.answered" class="fa fa-check-circle fa-2"
+                                                            aria-hidden="true"></i>
+                                                        <span class="sr-only">Answered</span>
+                                                    </div>
+                                                </div>
+                                            </div>-->
+                                        </button>
+                                        <div *ngIf="qAndA.answered">
+                                            <em>Answer: </em> {{qAndA.answer}}                                            
+                                        </div>
+                                        <div *ngIf="!qAndA.answered">
+                                            <em>Answer yet to be provided</em>                                            
+                                        </div>
+                                    </accordion-group>
+                                </accordion>
+                            </div>
+                            <div *ngIf="!unasweredQuestions || (unasweredQuestions && unasweredQuestions.length==0)" style="text-align: center;margin-top:20px" >
+                                <h3> There are no unanswered questions </h3>
+                            </div>
+                        </tab>
+                        <tab heading="Q&A History">
+                            <div *ngIf="qaByStudentResult && qaByStudentResult.length > 0">
+                                <accordion>
+                                    <accordion-group *ngFor="let qAndA of qaByStudentResult; let qNo=index"
+                                        [panelClass]="customAccordPanel">
+                                        <button class="btn btn-link btn-block clearfix" accordion-heading type="button">
+                                            <div class="row">
+                                                <div class="col-sm-10">
+                                                    <div style="text-align: left;">
+                                                        {{qNo+1}}. {{qAndA.question}}
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div  style="text-align: right;">
+                                                        <i *ngIf="qAndA.answered" class="fa fa-check-circle fa-2"
+                                                            aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div>
+                                                    <ul class="list-group list-group-horizontal">
+                                                        <li class="list-group-item badge">Posted On: {{qAndA.asked_date}}</li>
+                                                        <li class="list-group-item badge">Posted To:
+                                                            {{qAndA.answered_by?.teacher_name}}</li>
+                                                        <li class="list-group-item badge" *ngIf="qAndA.answered">Answered On:
+                                                            {{qAndA.answered_date}}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!--<div class="pull-left float-left with-border">{{qNo+1}}. {{qAndA.question}}
+                                            </div>
+                                            <div class="float-right pull-right col-sm-4 with-border">
+                                                <div class="row">
+                                                    <div class="col-sm-9">
+                                                        <div class="badge with-border question-info">Posted On:
+                                                            {{qAndA.asked_date}}</div>
+                                                        <div *ngIf="qAndA.answered"
+                                                            class="badge with-border question-info">Answered By:
+                                                            {{qAndA.answered_by?.teacher_name}}</div>
+                                                        <div *ngIf="qAndA.answered"
+                                                            class="badge with-border question-info">Answered On:
+                                                            {{qAndA.answered_date}}</div>
+                                                    </div>
+                                                    <div class="float-right pull-right col-sm-3">
+                                                        <i *ngIf="qAndA.answered" class="fa fa-check-circle fa-2"
+                                                            aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </div>-->
+                                        </button>
+                                        <div *ngIf="qAndA.answered">
+                                            <em>Answer: </em> {{qAndA.answer}}
+                                        </div>
+                                        <div *ngIf="!qAndA.answered">
+                                            <em>Answer yet to be provided</em>                                            
+                                        </div>
+                                    </accordion-group>
+                                </accordion>
+                            </div>
+                            <div *ngIf="!qaByStudentResult || (qaByStudentResult && qaByStudentResult.length ==0 ) " style="text-align: center;margin-top:20px" >
+                                <h3> There are no questions posted so far </h3>
+                            </div>
+                        </tab>
+                    </tabset>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-6 col-md-6">
+            <app-chat-panel></app-chat-panel>
+        </div>
+    </div>
+</div>

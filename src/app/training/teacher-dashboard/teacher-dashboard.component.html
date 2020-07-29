@@ -1,0 +1,137 @@
+<div class="row">
+    <div class="col-sm-12 tabContainer heading">
+        My Dashboard
+    </div>
+</div>
+<div class="row" *ngIf="currentUserRole === 'teacher'">
+    <div class="col-sm-12 tabContainer container" style="min-height: 400px; height: 400px; overflow-y:auto;overflow-x: auto;">
+        <tabset>
+            <tab heading="Unanswered Questions">
+                <div *ngIf="unasweredQuestions && unasweredQuestions.length > 0">
+                    <accordion>
+                        <accordion-group *ngFor="let qAndA of unasweredQuestions; let qNo=index" [panelClass]="customAccordPanel">
+                            <button class="btn btn-link btn-block clearfix" accordion-heading type="button">
+                                <div class="pull-left float-left with-border">{{qNo+1}}. {{qAndA.question}}</div>
+                                <div class="float-right pull-right col-sm-3 with-border">
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <div class="badge with-border question-info">Posted By: {{qAndA.asked_by?.student_name}}</div>
+                                            <div class="badge with-border question-info">Posted On: {{qAndA.asked_date}}</div>
+                                            <div *ngIf="qAndA.answered" class="badge with-border question-info">Answered On: {{qAndA.answered_date}}</div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <i *ngIf="qAndA.answered" class="fa fa-check-circle fa-3" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<span class="badge badge-secondary float-right pull-right">Some HTML here</span>-->
+                            </button>
+                            <div *ngIf="qAndA.answered">
+                                <div *ngIf="qAndA.isBeingEdited">
+                                    <textarea name="qnaEditAnswer" id="qnaEditAnswer" #answerEditModel [(ngModel)]="qAndA.answer" style="width:100%"></textarea>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <button type="button" name="submitEditAnswer" (click)="submitAnswer(qAndA, answerEditModel.value)" class="btn btn-primary qnaButton">Submit</button>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <button type="button" name="cancelEditAnswer" (click)="cancelEdit(qAndA)" class="btn btn-secondary qnaButton">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf="!qAndA.isBeingEdited"><em>Answer: </em> {{qAndA.answer}}
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <button type="button" name="editAnswer" (click)="editAnswer(qAndA)" class="btn btn-block btn-primary qnaButton">Edit Answer</button>
+                                        </div>                                        
+                                    </div>
+                                    
+                                </div>                                
+                            </div>
+                            <div *ngIf="!qAndA.answered">                                
+                                <textarea name="qnaAnswer" id="qnaAnswer" #answerModel [(ngModel)]="qAndA.answer" class="" style="width:100%"></textarea>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <button type="button" name="submitAnswer" (click)="submitAnswer(qAndA, answerModel.value)" class="btn btn-block btn-primary qnaButton">Submit Answer</button>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </accordion-group>
+                    </accordion>
+                    <!--<div *ngFor="let qAndA of unasweredQuestions">
+                            <div class="question">Question : {{qAndA.question}}
+                            </div>
+                            <div>
+                                <div *ngIf="!qAndA.answered" class="unanswered">Answer Now</div>                                                    
+                            </div>
+                        </div>-->
+                </div>
+                <div *ngIf="!unasweredQuestions || (unasweredQuestions && unasweredQuestions.length==0)" style="text-align: center;margin-top:20px">
+                    <h3> There are no unanswered questions </h3>
+                </div>
+            </tab>
+            <tab heading="Q&A History">
+                <div *ngIf="qaByTeacherResult && qaByTeacherResult.length > 0">
+                    <accordion>
+                        <accordion-group *ngFor="let qAndA of qaByTeacherResult; let qNo=index" [panelClass]="customAccordPanel">
+                            <button class="btn btn-link btn-block clearfix" accordion-heading type="button">
+                                <div class="pull-left float-left with-border">{{qNo+1}}. {{qAndA.question}}</div>
+                                <div class="float-right pull-right col-sm-3 with-border">
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <div class="badge with-border question-info">Posted By: {{qAndA.asked_by?.student_name}}</div>
+                                            <div class="badge with-border question-info">Posted On: {{qAndA.asked_date}}</div>
+                                            <div *ngIf="qAndA.answered" class="badge with-border question-info">Answered On: {{qAndA.answered_date}}</div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <i *ngIf="qAndA.answered" class="fa fa-check-circle fa-3" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<span class="badge badge-secondary float-right pull-right">Some HTML here</span>-->
+                            </button>
+                            <div *ngIf="qAndA.answered">
+                                <div *ngIf="qAndA.isBeingEdited">
+                                    <textarea name="qnaEditAnswer" id="qnaEditAnswer" #answerEditModel [(ngModel)]="qAndA.answer" style="width:100%"></textarea>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <button type="button" name="submitEditAnswer" (click)="submitAnswer(qAndA, answerEditModel.value)" class="btn btn-primary qnaButton">Submit</button>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <button type="button" name="cancelEditAnswer" (click)="cancelEdit(qAndA)" class="btn btn-secondary qnaButton">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf="!qAndA.isBeingEdited"><em>Answer: </em> {{qAndA.answer}}
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <button type="button" name="editAnswer" (click)="editAnswer(qAndA)" class="btn btn-block btn-primary qnaButton">Edit Answer</button>
+                                        </div>                                        
+                                    </div>
+                                    
+                                </div>                                
+                            </div>
+                            <div *ngIf="!qAndA.answered">                                
+                                <textarea name="qnaAnswer" id="qnaAnswer" #answerModel [(ngModel)]="qAndA.answer" class="" style="width:100%"></textarea>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <button type="button" name="submitAnswer" (click)="submitAnswer(qAndA, answerModel.value)" class="btn btn-block btn-primary qnaButton">Submit Answer</button>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </accordion-group>
+                    </accordion>
+                    <!--<div *ngFor="let qAndA of unasweredQuestions">
+                            <div class="question">Question : {{qAndA.question}}
+                            </div>
+                            <div>
+                                <div *ngIf="!qAndA.answered" class="unanswered">Answer Now</div>                                                    
+                            </div>
+                        </div>-->
+                </div>
+                <div *ngIf="!qaByTeacherResult || (qaByTeacherResult && qaByTeacherResult.length ==0 ) " style="text-align: center;margin-top:20px">
+                    <h3> You do not have any questions </h3>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+</div>

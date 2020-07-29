@@ -1,0 +1,48 @@
+.position-relative {
+        position: relative !important;
+}
+.d-lg-flex {
+    display: flex !important;
+}
+.text-lg-left {
+    text-align: left !important;
+}
+.flex-items-center {
+    align-items: center !important;
+}
+.container-lg, .container-xl {
+    margin-right: auto;
+    margin-left: auto;
+}
+* {
+    box-sizing: border-box;
+}
+
+@media all and (min-width: 1012px) {
+    .p-responsive {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+}
+
+.ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+.right-align {
+    float: right;
+}
+.headerLogo {    
+    width: 150px;
+}
+.fa-align {
+    width: 40px;
+    font-size: 32px;
+}
+.menuItem {
+    font-size: 24px;
+    font-weight: 600;
+}

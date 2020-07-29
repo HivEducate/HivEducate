@@ -1,0 +1,11 @@
+.hidebox {
+    float: left;
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    width: 50%;
+    height: 100px;
+    background-color: #f7f7f7;
+    border: 1px solid #f7f7f7;
+    z-index: 99;
+}

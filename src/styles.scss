@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+.customAccordPanel {
+    display: block;
+    margin: 0 0 2px 0;    
+}
+/*
+.customAccordPanel .panel-heading {
+    background-color: #7d3f98;
+    color: white;
+} */
+.customAccordPanel .panel-heading {
+    padding-right: 0px;
+}
+.customAccordPanel .panel-heading:hover {
+    background-color:rgba($color: #000, $alpha: 0.5);
+    color: white;
+}
+.panel-open {
+    .customAccordPanel {
+        .panel-heading {
+            // background-color: #7d3f98;
+            // color: white;
+            font-family: inherit;
+        }
+    }
+}
+.inactive {
+    .customAccordPanel {
+        .panel-heading {
+            background-color: #7d3f98;
+            color: white;
+        }
+    }
+}
+.panel.customAccordPanel .panel-body{
+    background-color: #ffffff;
+}
+.fa-5 {
+    font-size: 5rem;
+}
+.fa-4 {
+    font-size: 4rem;
+}
+.fa-3 {
+    font-size: 3rem;
+}
+.fa-2 {
+    font-size: 2rem;
+}

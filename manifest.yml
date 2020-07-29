@@ -1,0 +1,7 @@
+---
+applications :
+- name: hiveducate
+  buildpacks :
+  - https://github.com/cloudfoundry/staticfile-buildpack
+  path : ./dist/hiveducate
+  memory : 64M

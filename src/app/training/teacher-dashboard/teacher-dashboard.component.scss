@@ -1,0 +1,38 @@
+.row {
+margin-left: auto;
+margin-right: auto;
+}
+.tabContainer {
+    padding: 0 5vw;
+}
+.heading {
+    font-size: 2rem;
+    margin: 5px 0px;
+}
+.with-border {
+    border: 0px solid #770000;
+    display: inline-block;
+}
+.question-info {
+    display:block;
+    text-align:left;
+    margin-bottom: 4px;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: black;
+    background-color: transparent;
+}
+.btn-link:hover {
+    // color: #0056b3;
+    color: white;
+}
+.accord-panel:hover {
+    background-color: white;
+}
+.qnaButton {
+    width:80%;
+    margin:5% 10%;
+    text-align:center;
+}
