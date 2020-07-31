@@ -1,66 +1,70 @@
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">
-          <img src="./../../../assets/images/logo-bluegray.png" alt="HiveEducate" class="headerLogo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault"
-          aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>    
-        <div class="collapse navbar-collapse" id="navbarsDefault">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-              <a class="nav-link" routerLink="/home">
-                <i class="fa fa-home fa-fw fa-align" aria-hidden="true"></i>
-                <span class="sr-only">Home</span>
-              </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active" *ngIf="currentUser && currentUserRole==='teacher'">
-              <a class="nav-link" routerLink="/teacherDashboard">
-                <i class="fa fa-newspaper-o fa-fw fa-align" aria-hidden="true"></i>
-                <span class="sr-only">Dashboard</span>
-              </a>
-            </li>
-            
-            <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link" routerLink="/mail">
-                <i class="fa fa-envelope fa-fw fa-align" aria-hidden="true"></i>
-                <span class="sr-only">Mail</span>
-              </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link" routerLink="/calendar">
-                <i class="fa fa-calendar fa-fw fa-align" aria-hidden="true"></i>
-                <span class="sr-only">Calendar</span>
-              </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link" routerLink="/notifications">
-                <i class="fa fa-bell fa-fw fa-align" aria-hidden="true"></i>
-                <span class="sr-only">Notifications</span>
-              </a>
-            </li>
-          </ul>
-         
-          <!--<app-nav>
-          </app-nav>-->
-          <app-search></app-search>
-          <ul class="navbar-nav">            
-            <li class="nav-item" *ngIf="currentUser && currentUser.user">
-              <a class="nav-link" routerLink='/userProfile' routerLinkActive="active">
-                <i class="fa fa-user fa-align" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li class="nav-item" *ngIf="currentUser && currentUser.user">
-              <a class="nav-link" routerLink='/userProfile' routerLinkActive="active">                 
-                  <span style="padding: 0px;margin-left:-10px;display: inline-block;">{{greetingMessage}}</span>              </a>
-            </li>
-            <li class="nav-item" *ngIf="!currentUser" ><a class="nav-link" routerLink="/login" routerLinkActive="active">Sign in</a></li>
-            <li class="nav-item" *ngIf="!currentUser"><a class="nav-link" routerLink="/signUp" routerLinkActive="active">Sign up</a></li>
-            <li class="nav-item" *ngIf="currentUser">
-              <a class="nav-link" href='' (click)="signOutUser()">Sign out</a>
-            </li>
-          </ul>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">
+      <img src="./../../../assets/images/logo-bluegray.png" alt="HiveEducate" class="headerLogo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault"
+      aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link" routerLink="/home">
+            <i class="fa fa-home fa-fw fa-align" aria-hidden="true"></i>
+            <span class="sr-only">Home</span>
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="currentUser && currentUserRole==='teacher'">
+          <a class="nav-link" routerLink="/teacherDashboard">
+            <i class="fa fa-newspaper-o fa-fw fa-align" aria-hidden="true"></i>
+            <span class="sr-only">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="currentUser && currentUserRole==='student'">
+          <a class="nav-link" routerLink="/studentDashboard">
+            <i class="fa fa-newspaper-o fa-fw fa-align" aria-hidden="true"></i>
+            <span class="sr-only">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/mail">
+            <i class="fa fa-envelope fa-fw fa-align" aria-hidden="true"></i>
+            <span class="sr-only">Mail</span>
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/calendar">
+            <i class="fa fa-calendar fa-fw fa-align" aria-hidden="true"></i>
+            <span class="sr-only">Calendar</span>
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/notifications">
+            <i class="fa fa-bell fa-fw fa-align" aria-hidden="true"></i>
+            <span class="sr-only">Notifications</span>
+          </a>
+        </li>
+      </ul>
+      <app-search></app-search>
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngIf="currentUser && currentUser.user">
+          <a class="nav-link" routerLink='/userProfile' routerLinkActive="active">
+            <i class="fa fa-user fa-align" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="currentUser && currentUser.user">
+          <a class="nav-link" routerLink='/userProfile' routerLinkActive="active">
+            <span style="padding: 0px;margin-left:-10px;display: inline-block;">{{greetingMessage}}</span> </a>
+        </li>
+        <li class="nav-item" *ngIf="!currentUser"><a class="nav-link" routerLink="/login" routerLinkActive="active">Sign
+            in</a></li>
+        <li class="nav-item" *ngIf="!currentUser"><a class="nav-link" routerLink="/signUp"
+            routerLinkActive="active">Sign up</a></li>
+        <li class="nav-item" *ngIf="currentUser">
+          <a class="nav-link" href='' (click)="signOutUser()">Sign out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>

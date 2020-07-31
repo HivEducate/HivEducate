@@ -1,14 +1,15 @@
 <div style="background-color:#f7f7f7;">
     <div class="row" style="margin-left: auto; margin-right: auto;">
-        <div class="col-sm-12 col-md-8 col-lg-8" style="background-color:#fff;">
-            <div class="container">
+        <div class="col-sm-12 col-md-8 col-lg-8 d-xs-none d-sm-none d-md-block" style="background-color:#fff;">
+            <div class="container" [ngStyle]="isUserLoggedIn? {'height':'85vh'}:{'height':'100vh'}">
                 <div class="vertical-center">
-                    <img src="./../../../assets/images/why-hiveducate.png" alt="Why HivEducate?" style="float: left;width:100%;">
+                    <img src="./../../../assets/images/why-hiveducate.png" alt="Why HivEducate?" style="max-height: 640px;width:100%"
+                    >
                 </div>
             </div>            
         </div>
         <div class="col-sm-12 col-md-4 col-lg-4" style="background-color:#f7f7f7;">
-            <div class="container" [ngStyle]="isUserLoggedIn? {'height':'85vh'}:{'height':'100vh'}">
+            <div class="container" [ngStyle]="isUserLoggedIn? {'height':'85vh','min-height':'420px'}:{'height':'100vh', 'min-height':'470px'}">
                 <div class="center">
                     <div style="justify-content: center;overflow:auto;">
                         <img src="./../../../assets/images/logo-bluegray-t.png" style="margin-left: auto;margin-right:auto;display: block;" class="logoPosition" alt="HivEducate"/>                        
@@ -25,4 +26,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>  

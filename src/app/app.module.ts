@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-// import { JsonpClientModule } from '@angular/common/http';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
